@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Map from './components/Map';
+import PlansTable from './components/PlansTable';
+import ProfileSection from './components/ProfileSection';
+import { FaPlus } from 'react-icons/fa';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="app">
+            <Sidebar />
+            <div className="main-content">
+                <Map />
+                <PlansTable />
+            </div>
+            <ProfileSection />
+            <FaPlus className="floating-button" />
+        </div>
+    );
 }
 
 export default App;
