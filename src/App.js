@@ -15,7 +15,6 @@ function App() {
                 <PlansTable />
             </div>
             <ProfileSection />
-            <FaPlus className="floating-button" />
         </div>
     );
 }
