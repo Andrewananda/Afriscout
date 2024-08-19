@@ -21,7 +21,7 @@ const MapComponent = () => {
     ];
 
     return (
-        <LoadScript googleMapsApiKey="YOUR_API_KEY">
+        <LoadScript googleMapsApiKey="AIzaSyAfl5flUZP6yocYRgt1aLMXWjm3tTIPnW0">
             <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
                 <Polygon
                     paths={polygonPaths}

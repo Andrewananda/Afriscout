@@ -1,30 +1,71 @@
-import React from 'react';
-import { FaMapMarkerAlt, FaPlus, FaBars } from 'react-icons/fa';
+import React, { useState } from 'react';
 import './Sidebar.css';
+import { FaMapMarkerAlt, FaPlus, FaBars } from 'react-icons/fa';
 
 const Sidebar = () => {
+    const [openDropdowns, setOpenDropdowns] = useState({});
+
+    const menuItems = [
+        { title: 'Home', link: '/' },
+        { 
+            title: 'Southern Ethopia', 
+            dropdown: [
+                { title: 'Dassenach', link: '/web-development' },
+                { title: 'Gnangatom', link: '/mobile-development' }
+            ] 
+        },
+        { 
+            title: 'Borena', 
+            dropdown: [
+                { title: 'Dassenach', link: '/web-development' },
+                { title: 'Gnangatom', link: '/mobile-development' }
+            ] 
+        },
+        { 
+            title: 'Eastern Borena', 
+            dropdown: [
+                { title: 'Dassenach', link: '/web-development' },
+                { title: 'Gnangatom', link: '/mobile-development' }
+            ] 
+        },
+    ];
+
+    const toggleDropdown = (index) => {
+        setOpenDropdowns(prevState => ({
+            ...prevState,
+            [index]: !prevState[index]
+        }));
+    };
+
     return (
         <div className="sidebar">
-            <div className="sidebar-header">
-                <FaBars size={20} />
-                <h2>Regions</h2>
-            </div>
             <ul>
-                <li>
-                    <FaMapMarkerAlt /> Southern Ethiopia
-                    <ul>
-                        <li>South Omo</li>
-                        <li className="selected">Hammer</li>
-                        <li>Dassenach</li>
-                        <li>Gnanngatom</li>
-                    </ul>
-                </li>
-                <li>Borena</li>
-                <li>Eastern Borena</li>
-                <li>Somali</li>
+                {menuItems.map((item, index) => (
+                    <li key={index}>
+                        {item.dropdown ? (
+                            <>
+                                <div onClick={() => toggleDropdown(index)} className="sidebar-item">
+                                    {item.title}
+                                </div>
+                                {openDropdowns[index] && (
+                                    <ul className="dropdown-menu">
+                                        {item.dropdown.map((subItem, subIndex) => (
+                                            <li key={subIndex}>
+                                                <a href={subItem.link} className="sidebar-subitem">{subItem.title}</a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </>
+                        ) : (
+                            <a href={item.link} className="sidebar-item">{item.title}</a>
+                        )}
+                    </li>
+                ))}
             </ul>
+            
             <div className="sidebar-footer">
-                <FaPlus className="add-button" />
+                <FaPlus onClick={() => console.log("Test")} className="fab" style={{ backgroundColor: '#8CC63F' }} />
             </div>
         </div>
     );

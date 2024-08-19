@@ -44,7 +44,6 @@ const PlansTable = () => {
                     <td>Cattle - 125, Shoat - 64, Camels - 20</td>
                     <td>Paddock 2: Aug 13th, 2024 - Sep 2nd, 2024</td>
                 </tr>
-                {/* Add more rows as needed */}
                 </tbody>
             </table>
         </div>

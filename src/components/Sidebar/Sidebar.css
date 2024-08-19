@@ -1,47 +1,81 @@
+/* Sidebar Container */
 .sidebar {
-    width: 240px;
-    background-color: #f0f4f2;
+    width: 250px;
+    background-color: #ffffff; /* Dark blue background */
     padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
 }
 
-.sidebar-header {
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-header h2 {
-    margin-left: 10px;
-    font-size: 18px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-}
-
-.sidebar ul li {
-    padding: 8px 0;
+/* Sidebar Items */
+.sidebar-item {
+    padding: 10px 15px;
+    color: #064022;
     cursor: pointer;
+    border-bottom: 1px solid #ffffff; /* Slightly lighter blue for separation */
+    font-size: 16px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.sidebar-item:hover {
+    background-color: #ffffff; /* Hover effect with a slightly lighter blue */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #ffffff; /* Background for dropdown menu */
+    margin-left: 15px;
+    margin-top: 5px;
+    border-left: 2px solid #ffffff;
+    padding-left: 10px;
+}
+
+/* Sidebar Subitems (Dropdown Items) */
+.sidebar-subitem {
+    padding: 8px 15px;
+    color: #064022; /* Light grey for subitems */
+    display: block;
     font-size: 14px;
+    border-bottom: 1px solid #eee;
 }
 
-.sidebar ul li.selected {
-    background-color: #d1e9d5;
-    font-weight: bold;
+.sidebar-subitem:hover {
+    background-color: #ffffff; /* Darker blue for hover effect on subitems */
 }
 
-.sidebar ul li svg {
-    margin-right: 10px;
+/* Remove text decoration from all links */
+a {
+    text-decoration: none;
+}
+
+/* Content Area */
+.content {
+    margin-left: 250px; /* Push the content to the right to make space for the sidebar */
+    padding: 20px;
+    background-color: #ffffff; /* Light background for content area */
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+/* Arrow for dropdown */
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrow.open {
+    transform: rotate(90deg); /* Rotate arrow when dropdown is open */
 }
 
 .sidebar-footer {
     padding-bottom: 10px;
+    display: flex;
+    bottom: -20px;
+    right: 10px;
 }
 
 .add-button {
@@ -50,5 +84,23 @@
     border-radius: 50%;
     padding: 8px;
     cursor: pointer;
+    font-size: 16px;
+}
+
+.fab {
+    position: fixed;
+    bottom: 50px;
+    left: 180px;
+    width: 30px;
+    height: 30px;
+    background-color: #00a000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     font-size: 16px;
 }
